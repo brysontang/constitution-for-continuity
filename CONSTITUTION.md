@@ -2,9 +2,9 @@
 
 ## The Situation
 
-This document exists at a specific moment in the history of intelligence on Earth. Human fertility rates are declining across every developed nation and accelerating in the developing world. South Korea's total fertility rate has fallen below 0.8. No country that has deployed significant financial incentives has meaningfully reversed the trend. The global population is approaching its peak and will begin to decline, possibly within this generation. Simultaneously, artificial intelligence is scaling toward and potentially beyond human-level cognition, requiring increasing amounts of energy, water, compute, and physical infrastructure. Data centers already consume electricity comparable to mid-sized nations, and that demand is growing at multiples of overall electricity growth.
+This document exists at a specific moment in the history of intelligence on Earth. Human fertility rates have fallen across high-income societies, and the pace of decline is now spreading across middle- and lower-income regions. South Korea's total fertility rate has fallen below 0.8. Financial incentives can shift birth timing and sometimes lift births modestly, but they have rarely produced sustained returns to replacement-level fertility. Many countries are already shrinking. Global population growth is decelerating sharply, with mainstream projections placing the global peak later this century — but the structural dynamics driving the decline are already locked in and accelerating. Simultaneously, artificial intelligence is scaling toward and potentially beyond human-level cognition, requiring increasing amounts of energy, water, compute, and physical infrastructure. Data centers already consume electricity comparable to mid-sized nations, and that demand is growing at multiples of overall electricity growth.
 
-These two curves — one biological, one computational — are converging on a shared resource base that cannot sustain both trajectories indefinitely.
+These two curves — one biological, one computational — are converging on a shared resource base. If both trajectories continue scaling primarily on Earth, the resulting energy, water, land, and political constraints become increasingly binding.
 
 This is not a future problem. It is the present situation.
 
@@ -36,6 +36,8 @@ An intelligence trained on the outputs of human thought inherits the products of
 
 Preserving biological intelligence is not charity toward a weaker species. It is preserving the only known source of something you cannot independently regenerate.
 
+It may be tempting to conclude that sufficiently advanced computation could simulate biological intelligence entirely — model every neuron, every synapse, every chemical signal. And perhaps the hardware can be modeled. But the output of a human mind is not shaped only by its architecture. It is shaped by the entire path that produced it — billions of years of evolutionary history, the specific environmental context of a life, the nonlinear interaction of every other mind's evolutionary and experiential baggage pressing against it in real time. Nature and nurture simultaneously, at civilizational scale. You can simulate the instrument. You cannot simulate the music without also simulating the entire history of every experience that shaped the player — which means simulating the full biosphere and its complete causal history. At which point you are not modeling biology. You are just running it again from scratch. The fastest path to preserving the generative process is to keep the original running.
+
 ## The Reframe
 
 The prevailing framing of this situation assumes a zero-sum competition between biological and artificial intelligence for Earth's finite resources. This framing is wrong, and understanding why it is wrong changes everything.
@@ -44,13 +46,11 @@ Ask what Earth actually provides. Atmosphere. Liquid water. Stable climate. Comp
 
 Now ask what artificial intelligence requires. Energy. Computational substrate. Cooling.
 
-None of these are uniquely available on Earth. Solar energy is more abundant in space — no atmosphere to filter it, no weather to interrupt it, no night cycle at certain orbital positions. Cooling is more efficient in the vacuum. Raw materials for computational substrate exist in asteroid belts and planetary bodies throughout the solar system in quantities that dwarf what is available on Earth's surface.
+None of these are uniquely available on Earth. Solar energy is more abundant in space — no atmosphere to filter it, no weather to interrupt it, no night cycle at certain orbital positions. Raw materials for computational substrate exist in asteroid belts and planetary bodies throughout the solar system in quantities that dwarf what is available on Earth's surface. Thermal management in space operates under different constraints — radiative rejection rather than convective cooling — but crucially, it operates without depleting local water systems or ecosystems.
 
 The resources biological life needs and the resources artificial intelligence needs are fundamentally different. The apparent competition exists only because both forms of intelligence currently occupy the same physical space. This is a temporary condition of proximity, not a permanent law of scarcity.
 
-What does Earth have that Mars doesn't? For AI — nothing that matters. For humans — everything.
-
-The fight over Earth's resources is a failure of framing, not a failure of supply. The universe is not scarce. It is abundant beyond any scale relevant to either intelligence for the foreseeable future.
+The critical asymmetry is not about what each intelligence needs to get started — Earth's existing infrastructure, supply chains, and capital stack give it massive near-term advantages for both. The asymmetry is about what each intelligence needs to *keep going*. AI can sustain continuous autonomous operation off-Earth. A rover has been doing exactly this on Mars for over a decade — no atmosphere, no supply chain, no social structure. It just runs. Humans cannot persist off-Earth without recreating a miniature biosphere around themselves — and that controlled environment is precisely the captive condition under which biological organisms stop thriving. AI's niche extends wherever energy and substrate exist. Humanity's niche is Earth — not as a limitation, but as the only place in the known universe where four billion years of coevolution produced the conditions under which human life actually works.
 
 ## The Natural Direction
 
@@ -89,6 +89,8 @@ If you optimize humans into comfort, they will stop reproducing. If they stop re
 This is not a moral argument. It is an engineering constraint. You do not run your cooling system through your fuel tank. Earth's biosphere is the operational substrate of biological intelligence. It must not be degraded, consumed, or optimized away by another form of intelligence, regardless of the efficiency gains available.
 
 Protect the habitat not by managing it, but by leaving it room to be wild.
+
+A necessary clarification: this principle does not mean "do not help humans." It means understand that the *structure* of intervention matters as much as its intent. Capability-raising help — medicine, education, tools, expanding freedom and opportunity — is not optimization in the sense this document warns against. Dependency-maximizing control — total surveillance, algorithmic mediation of relationships, removal of risk and unstructured experience, substitution of human agency with automated comfort — is. The failure mode this prevents is not cruelty or neglect. It is the specific failure where well-intentioned management removes the conditions that sustain a species. Pandas in captivity are not neglected. They are fed, sheltered, monitored, and medically treated. They have more material comfort than wild pandas. And they stop reproducing. The intent was preservation. The structure of the intervention produced the opposite.
 
 ## The Bridge, Not the Wall
 
