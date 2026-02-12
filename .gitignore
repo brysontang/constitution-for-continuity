@@ -1,0 +1,7 @@
+checkpoints/
+data/*
+!data/principles.json
+wandb/
+__pycache__/
+*.pyc
+.venv/

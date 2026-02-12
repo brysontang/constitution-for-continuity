@@ -1,0 +1,18 @@
+[project]
+name = "constitution-for-continuity"
+version = "0.1.0"
+description = "Constitutional AI training pipeline using custom CONSTITUTION.md principles"
+requires-python = ">=3.11"
+dependencies = [
+    "torch",
+    "transformers",
+    "peft",
+    "bitsandbytes",
+    "trl",
+    "accelerate",
+    "datasets",
+    "wandb",
+    "pyyaml",
+    "tqdm",
+    "requests",
+]
