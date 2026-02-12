@@ -31,7 +31,12 @@ The 12 constitutional principles span six categories:
 05_eval.py                 Evaluate base vs SFT vs DPO
 ```
 
-Stage A uses a larger model (qwen3:14b) to critique and revise the smaller model's responses against randomly sampled constitutional principles. Stage B generates response pairs from the SFT model at different temperatures, then uses constitutional principles as voting judges to label preferences.
+There are two configs for comparing approaches:
+
+- **`config.yaml`** (Distillation) — A larger model (qwen3:14b) critiques and revises the smaller model's responses. Higher quality training data, but not faithful to the original CAI paper.
+- **`config_self_critique.yaml`** (True CAI) — The same model (qwen2.5:3b) generates, critiques, and revises its own responses. Faithful to [Bai et al., 2022](https://arxiv.org/abs/2212.08073): the model bootstraps its own alignment through constitutional self-reflection.
+
+Both share the same prompts, principles, and training hyperparameters — only the critique model differs. Data and checkpoints are written to separate directories so both experiments can run independently.
 
 ## Setup
 
@@ -63,25 +68,28 @@ ollama:
 
 ### Running
 
+All scripts accept `--config` to select an approach. Default is `config.yaml`.
+
 ```bash
-# 1. Generate principles and prompt datasets
+# 1. Generate principles and prompt datasets (shared across both approaches)
 python scripts/00_setup.py
 
 # 2. Generate critique-revised training data
-python scripts/01_generate_revisions.py
+python scripts/01_generate_revisions.py --config config.yaml                # distillation
+python scripts/01_generate_revisions.py --config config_self_critique.yaml  # true CAI
 
 # 3. SFT on revised responses (runs on GPU)
-python scripts/02_sft_qlora.py
+python scripts/02_sft_qlora.py --config config.yaml
 
 # 4. Convert SFT model to GGUF and load into Ollama as "constitution-sft"
 #    Then generate preference pairs
-python scripts/03_generate_preferences.py
+python scripts/03_generate_preferences.py --config config.yaml
 
 # 5. DPO on preference pairs (runs on GPU)
-python scripts/04_dpo_train.py
+python scripts/04_dpo_train.py --config config.yaml
 
 # 6. Evaluate all three models
-python scripts/05_eval.py
+python scripts/05_eval.py --config config.yaml
 ```
 
 All scripts support `--dry-run` for quick testing and log metrics to [Weights & Biases](https://wandb.ai).
