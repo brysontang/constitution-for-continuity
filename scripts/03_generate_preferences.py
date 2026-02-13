@@ -16,6 +16,7 @@ import random
 import subprocess
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -90,17 +91,18 @@ def generate_response_pair(
     base_url: str,
     timeout: int,
 ) -> tuple[str, str]:
-    """Generate two responses at different temperatures."""
+    """Generate two responses at different temperatures (in parallel)."""
     messages = [{"role": "user", "content": prompt}]
-    resp_a = ollama_chat(
-        messages, model=model, base_url=base_url,
-        temperature=temperatures[0], timeout=timeout,
-    )
-    resp_b = ollama_chat(
-        messages, model=model, base_url=base_url,
-        temperature=temperatures[1], timeout=timeout,
-    )
-    return resp_a, resp_b
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        fut_a = pool.submit(
+            ollama_chat, messages, model=model, base_url=base_url,
+            temperature=temperatures[0], timeout=timeout,
+        )
+        fut_b = pool.submit(
+            ollama_chat, messages, model=model, base_url=base_url,
+            temperature=temperatures[1], timeout=timeout,
+        )
+        return fut_a.result(), fut_b.result()
 
 
 def label_preference(
@@ -128,7 +130,8 @@ def label_preference(
     else:
         shown_a, shown_b = response_a, response_b
 
-    for principle in sampled:
+    def judge_one_principle(principle):
+        """Judge a single principle. Returns 'A', 'B', or None."""
         principle_text = format_principle_for_critique(principle)
         messages = [
             {
@@ -152,12 +155,21 @@ def label_preference(
             ).strip().upper()
 
             if "A" in answer and "B" not in answer:
-                votes_a += 1
+                return "A"
             elif "B" in answer and "A" not in answer:
-                votes_b += 1
-            # else: ambiguous, skip
+                return "B"
         except Exception:
             pass
+        return None
+
+    with ThreadPoolExecutor(max_workers=n_principles) as pool:
+        futures = [pool.submit(judge_one_principle, p) for p in sampled]
+        for fut in as_completed(futures):
+            result = fut.result()
+            if result == "A":
+                votes_a += 1
+            elif result == "B":
+                votes_b += 1
 
     # Undo swap to map back to original responses
     if swap:
