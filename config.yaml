@@ -54,6 +54,7 @@ ollama:
   critique_model: "qwen3:14b"
   base_response_model: "qwen2.5:3b"
   sft_model: "constitution-sft"
+  dpo_model: "constitution-dpo"
   timeout: 120
 
 data:
